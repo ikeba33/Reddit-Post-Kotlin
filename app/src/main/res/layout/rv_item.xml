@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="#fff"
+    android:padding="8dp"
+    card_view:cardCornerRadius="4dp"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <TextView
+        android:id="@+id/prefix_user"
+        style="@style/textViewStyle"
+        android:text="user: "
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/user"
+        android:text="gadddzilla"
+        app:layout_constraintLeft_toRightOf="@id/prefix_user"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/textViewStyle" />
+
+    <TextView
+        android:id="@+id/prefix_subreddit"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prefix_user"
+        android:text="subreddit: "
+        />
+    <TextView
+        android:id="@+id/subreddit"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toRightOf="@id/prefix_subreddit"
+        app:layout_constraintTop_toBottomOf="@id/user"
+        android:text="subreddit"
+        />
+
+    <ImageButton
+        android:id="@+id/thumbnail"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subreddit"
+        />
+
+    <TextView
+        android:id="@+id/prefix_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rating: "
+        style="@style/textViewStyle"
+        app:layout_constraintTop_toBottomOf="@id/thumbnail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/rating"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toRightOf="@id/prefix_rating"
+        app:layout_constraintTop_toBottomOf="@id/thumbnail"
+        android:text="rating"
+        />
+
+    <TextView
+        android:id="@+id/prefix_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="comments: "
+        style="@style/textViewStyle"
+        app:layout_constraintTop_toBottomOf="@id/prefix_rating"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/comments"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toRightOf="@id/prefix_comments"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        android:text="154"
+        />
+
+    <TextView
+        android:id="@+id/prefix_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date: "
+        style="@style/textViewStyle"
+        app:layout_constraintTop_toBottomOf="@id/prefix_comments"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/date"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toRightOf="@id/prefix_date"
+        app:layout_constraintTop_toBottomOf="@id/comments"
+        android:text="18:30"
+        />
+
+    <TextView
+        android:id="@+id/prefix_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="topic: "
+        style="@style/textViewStyle"
+        app:layout_constraintTop_toBottomOf="@id/prefix_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/topic"
+        style="@style/textViewStyle"
+        app:layout_constraintLeft_toRightOf="@id/prefix_topic"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        android:text="OPTIMUSGUNG"
+        />
+    <Button
+        android:id="@+id/btn"
+        style="@style/textViewStyle"
+        android:textColor="#9BAAFF"
+        android:background="#554545"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prefix_topic"
+        android:text="View original post"
+        />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
