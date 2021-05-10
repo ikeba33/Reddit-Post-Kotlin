@@ -1,5 +1,7 @@
 package com.example.redditposts.utils
 
+import com.example.redditposts.objects.Post
+import com.example.redditposts.objects.RootData
 import java.util.*
 
 fun dateConverter(long: Double){
@@ -10,4 +12,12 @@ fun dateConverter(long: Double){
    keeper = keeper/1000/60/60
     println("Time ago: $keeper")
 
+}
+
+fun convertRootToListOfPost(rootData: RootData): List<Post>{
+    var listOfPosts = mutableListOf<Post>()
+    for (post in rootData.data.children){
+        listOfPosts.add(post.post)
+    }
+    return listOfPosts
 }

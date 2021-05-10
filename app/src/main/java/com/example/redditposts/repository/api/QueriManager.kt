@@ -1,12 +1,19 @@
 package com.example.redditposts.repository.api
 
+import com.example.redditposts.objects.Constants
+
 
 object QueriManager {
-    private val BASE_URL = "https://www.reddit.com"
+
     val apiClient: ApiClient? = ApiClient()
     val redditApiService: RedditApiService
-        get() = apiClient!!.getClient(BASE_URL).create(RedditApiService::class.java) //apiclient create service
+        get() = apiClient!!.getClient(Constants.BASE_URL).create(RedditApiService::class.java) //apiclient create service
     //   get() { return apiClient!!.getClient(BASE_URL).create(RedditApiService::class.java) }
+
+    //hP4KRZlgHeUkcA
+
+
+
 
 
 

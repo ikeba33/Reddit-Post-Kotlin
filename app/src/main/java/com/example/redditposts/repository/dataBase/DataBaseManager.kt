@@ -25,7 +25,7 @@ public abstract class DataBaseManager: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DataBaseManager::class.java,
-                    "word_database"
+                    "post-database"
                 ).build()
                 INSTANCE = instance
                 // return instance

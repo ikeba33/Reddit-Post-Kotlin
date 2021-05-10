@@ -12,14 +12,10 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.redditposts.utils.dateConverter
-import com.example.redditposts.objects.Children
-import com.example.redditposts.objects.Data
 import com.example.redditposts.objects.Post
-import com.example.redditposts.objects.RootData
 import com.example.redditposts.utils.imgLoad
-import java.util.*
 
-class MyAdapter(var rootData : RootData, val context: Context): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(var posts : MutableList<Post>, val context: Context): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -55,27 +51,27 @@ class MyAdapter(var rootData : RootData, val context: Context): RecyclerView.Ada
         return MyViewHolder(itemView)
     }
 
-    fun setNewPosts(rootData: RootData){
+    fun setNewPosts(newPosts: List<Post>){
         var oldSize = getItemCount()
-        this.rootData.data.children.addAll(rootData.data.children)
+        this.posts.addAll(newPosts)
         notifyItemRangeChanged(oldSize, getItemCount())
     }
 
     override fun getItemCount(): Int {
-        return rootData.data.children.size
+        return posts.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var post: Children? = rootData.data.children.get(position)
-        holder.user?.setText(post?.data?.author)
-        holder.subreddit?.setText(post?.data?.subreddit)
-        holder.comments?.setText(post?.data?.num_comments.toString())
+
+        holder.user?.setText(posts.get(position).author)
+        holder.subreddit?.setText(posts.get(position).subreddit)
+        holder.comments?.setText(posts.get(position).num_comments.toString())
         holder.date?.setText(
-            dateConverter(post?.data?.created!!)
+            dateConverter(posts.get(position).created!!)
                 .toString()) // TODO: 27.04.2021   change !! to no null
-        holder.title?.setText(post?.data?.title)
-        if (post?.data?.thumbnail != "")
-            imgLoad(context,post?.data?.thumbnail,holder.thumbnail )     //holder.thumbnail?.setImageResource(rootData?.data?.children?.get(position)?.data?.thumbnail)
+        holder.title?.setText(posts.get(position).title)
+        if (posts.get(position).thumbnail != "")
+            imgLoad(context,posts.get(position).thumbnail,holder.thumbnail )     //holder.thumbnail?.setImageResource(rootData?.data?.children?.get(position)?.data?.thumbnail)
 
         holder.button?.setOnClickListener(View.OnClickListener {
             val builder = CustomTabsIntent.Builder()
@@ -86,7 +82,7 @@ class MyAdapter(var rootData : RootData, val context: Context): RecyclerView.Ada
             val anotherCustom = CustomTabsIntent.Builder().build()
 
             val customTabsIntent = builder.build()
-            customTabsIntent.launchUrl(context, Uri.parse(post?.data?.url))
+            customTabsIntent.launchUrl(context, Uri.parse(posts.get(position).url))
 
         })
     }
